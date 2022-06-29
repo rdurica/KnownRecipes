@@ -20,6 +20,7 @@ struct RecipeCard: View {
                         Text(recipe.name)
                             .foregroundColor(.white)
                             .font(.headline)
+                            .frame(maxWidth: 150)
                             .padding()
                             .shadow(color: .black, radius: 3, x: 0, y: 0)
                     }
@@ -29,9 +30,11 @@ struct RecipeCard: View {
                     .scaledToFill()
                     .frame(width: 40, height: 40, alignment: .center)
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                    .background(LinearGradient(colors: [Color.black, Color.gray], startPoint: .bottom , endPoint: .top))
+                    .foregroundColor(.white)
             }
         }
-        .frame(width: 160, height: 217, alignment: .top)
+        .frame(width: 160, height: 220, alignment: .top)
         .imageScale(.small)
         .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
         .shadow(color: Color.black.opacity(0.3), radius: 15, x: 0, y: 10)
@@ -39,7 +42,7 @@ struct RecipeCard: View {
 
 struct RecipeCard_Previews: PreviewProvider {
     static var previews: some View {
-        RecipeCard(recipe: Recipe.all[0])
+        RecipeCard(recipe: Recipe.all[2])
     }
 }
 }
